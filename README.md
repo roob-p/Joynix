@@ -6,7 +6,7 @@
 - Emulate your mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
 ***Perfect for old games without native controller support or with incomplete Xinput functionality.***  
 # UNDER COSTRUCTION #  
-**Planned a resident tray exe that switches profiles automatically.**
+<!--**Planned a resident tray exe that switches profiles automatically.**
 - Supports button toggle (key stays pressed even if the button is released)
 - The program also allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
@@ -21,7 +21,7 @@
 ## ⚙️ How it works 
 - Add `[TOGGLE]` to the button assignment to set that button as a button toggle.
 - The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`. Make sure that GamepadToKeyboard is disabled in Playnite, or that the target game is deactivated.
-
+-->
 
 ### 🔄 Live config reload
 
