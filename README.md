@@ -1,10 +1,14 @@
- # 🎮 GamepadToKeyboard
+ # 🎮 GamepadToKeyboard (work in progress)
  ![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)  
  
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
 
 - Emulate your mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
-***Perfect for old games without native controller support or with incomplete Xinput functionality.***  
+***Perfect for old games without native controller support or with incomplete Xinput functionality.***
+- The program allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
+- Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
+- **In future I'll add MACRO, COMBO and TURBO functionalities. Stay tuned.**
+  
 # UNDER COSTRUCTION #  
 <!--**Planned a resident tray exe that switches profiles automatically.**
 - Supports button toggle (key stays pressed even if the button is released)
@@ -12,16 +16,19 @@
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - **In future I'll add circular deadonze, MACRO, COMBO and TURBO functionalities. Stay tuned.**
 
-
+-->
   # UNDER CONSTRUCTION
+  
 
 ##### ⚠️ `GamepadToKeyboard` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
 
 
 ## ⚙️ How it works 
+##  UNDER CONSTRUCTION
 - Add `[TOGGLE]` to the button assignment to set that button as a button toggle.
-- The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`. Make sure that GamepadToKeyboard is disabled in Playnite, or that the target game is deactivated.
--->
+- Specify the assignment `.ini` config to load in `GamepadToKeyboard.config`. It will be loaded when starting the application. 
+- The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`.  
+
 
 ### 🔄 Live config reload
 
