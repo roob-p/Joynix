@@ -5,12 +5,12 @@
 
 - Emulate your mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
 ***Perfect for old games without native controller support or with incomplete Xinput functionality.***
-> ⚠️ **Work in Progress**  
-> Program and README still under construction.
 - The program allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - Supports button toggle (key stays pressed even if the button is released)
 - **In future I'll add MACRO, COMBO and TURBO functionalities. Stay tuned.**
+> ⚠️ **Work in Progress**  
+> Program and README still under construction.
   
 ## UNDER COSTRUCTION ##    
 <!--**Planned a resident tray exe that switches profiles automatically.**
@@ -29,7 +29,8 @@
 - Specify the assignment `.ini` config to load in `GamepadToKeyboard.config`. It will be loaded when starting the application. 
 - The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`.
 - Add `[TOGGLE]` to the button assignment to set that button as a button toggle.
-> ⚠️ **Work in Progress**  
+> ⚠️ **Work in Progress**
+  
 
 
 ### 🔄 Live config reload
