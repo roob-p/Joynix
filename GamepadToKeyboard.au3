@@ -36,13 +36,11 @@ if $cmdline[0]>0 then
 if StringInStr($cmdline[1],".ini") then
 	$inifile=$cmdline[1]
 	else
-;$inifile=@ScriptDir & "\configs.ini"
-;$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+
 $inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 endif
 	Else
-	;$inifile=@ScriptDir & "\default.ini"
-	;$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+
 	$inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 	endif
 
@@ -302,73 +300,17 @@ next
 
 
 func sn($ix,$value, $state)
-	;if $state = "down" then
-	;send ("{" & $values[$i] & " up}")
-	;elseif $state= "up" Then
-	;endif
+
 
 if $toggle[$ix] = True then
 
-	;if $toggleOn[$ix]=False and $pressed[$ix]=True Then
+
 	if $toggleOn[$ix]=False and $keys[$ix]=True Then
 	$toggleOn[$ix]=True
 	$value=stringreplace($value,"[Toggle]","")
 	send ("{" & $value & " down}")
 
-	;elseif $toggleOn[$ix]=True and $pressed[$ix]=True then
-	elseif $toggleOn[$ix]=True and $keys[$ix]=True then
-	$toggleOn[$ix]=False
-	$value=stringreplace($value,"[Toggle]","")
-	send ("{" & $value & " up}")
-	endif
 
-;elseif $toggle[$ix] = False then
-elseif $toggle[$ix] = False and $turbo[$ix]=False then
-
-if $state = "up" Then
-	send ("{" & $value & " up}")
-elseif $state = "down" Then
-	send ("{" & $value & " down}")
-	endif
-
-
-elseif $toggle[$ix] = False and $turbo[$ix]=True and $keys[$ix] Then
-$value=stringreplace($value,"[Turbo]","")
-
-;for $c=0 to 10
-;while $keys[$ix]
-;send ("{" & $value & "}")
-;next
-;buttons()
-;if (not $keys[$ix]) then
-;	ExitLoop
-;if (not $keys[$ix]) then exitloop
-;wend
-
-
-
-	endif
-	endfunc
-
-
-
-
-#comments-start ;backup FUNZIONAAA
-func sn($ix,$value, $state)
-	;if $state = "down" then
-	;send ("{" & $values[$i] & " up}")
-	;elseif $state= "up" Then
-	;endif
-
-if $toggle[$ix] = True then
-
-	;if $toggleOn[$ix]=False and $pressed[$ix]=True Then
-	if $toggleOn[$ix]=False and $keys[$ix]=True Then
-	$toggleOn[$ix]=True
-	$value=stringreplace($value,"[Toggle]","")
-	send ("{" & $value & " down}")
-
-	;elseif $toggleOn[$ix]=True and $pressed[$ix]=True then
 	elseif $toggleOn[$ix]=True and $keys[$ix]=True then
 	$toggleOn[$ix]=False
 	$value=stringreplace($value,"[Toggle]","")
@@ -376,6 +318,7 @@ if $toggle[$ix] = True then
 	endif
 
 elseif $toggle[$ix] = False then
+;elseif $toggle[$ix] = False and $turbo[$ix]=False then
 
 if $state = "up" Then
 	send ("{" & $value & " up}")
@@ -384,9 +327,12 @@ elseif $state = "down" Then
 	endif
 
 
-	endif
+endif
 	endfunc
-#comments-end
+
+
+
+
 
 
 func mouse()
