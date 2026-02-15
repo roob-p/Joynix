@@ -3,14 +3,15 @@
  
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
 
-- This extension lets you send mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
+- Emulate your mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
 ***Perfect for old games without native controller support or with incomplete Xinput functionality.***  
-**SECTION UNDER COSTRUCTION**
+**SECTION UNDER COSTRUCTION**  
+**Planned a resident exe that switches profiles.**
 - Supports button toggle (key stays pressed even if the button is released)
 - The program also allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
-- **In future I'll add MACRO, COMBO and TURBO functionalities. Stay tuned.**
-- Planned circle deadzone
+- **In future I'll add circular deadonze, MACRO, COMBO and TURBO functionalities. Stay tuned.**
+
 
   # UNDER CONSTRUCTION
 
