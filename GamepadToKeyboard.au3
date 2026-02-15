@@ -1,5 +1,5 @@
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_Icon=iconB2T.ico
+#AutoIt3Wrapper_Icon=prova1.ico
 #AutoIt3Wrapper_UseX64=y
 #AutoIt3Wrapper_Res_Description=GamepadToKeyboard (64 bit)
 #AutoIt3Wrapper_Res_Fileversion=1.0.1.0
@@ -29,17 +29,21 @@ $buttons = _XInputButtons($input[2])
 $analogdeadzone=1
 local $ignoreIndices[4]
 
+$programName="GamepadToKeyboard"
+
 
 if $cmdline[0]>0 then
 if StringInStr($cmdline[1],".ini") then
 	$inifile=$cmdline[1]
 	else
 ;$inifile=@ScriptDir & "\configs.ini"
-$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+;$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+$inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 endif
 	Else
 	;$inifile=@ScriptDir & "\default.ini"
-	$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+	;$inifile=IniRead(@ScriptDir & "\Standalone Profile Loader.config","configToLoad","configToLoad","")
+	$inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 	endif
 
 
@@ -98,6 +102,12 @@ global $LSXaxisInverted=IniRead($inifile,"Analogs","LSXaxisInverted",0), $LSYaxi
 $wheelstepup=IniRead($inifile,"[Other]","WheelStepUp",1)
 $wheelstepdown=IniRead($inifile,"[Other]","WheelStepDown",1)
 
+Global $WheelSpeedLimiterUp = IniRead($inifile,"[Other]","WheelSpeedLimiterUp",8500)
+Global $WheelSpeedlimiterDown = IniRead($inifile,"[Other]","WheelSpeedLimiterDown",8500)
+Global $UseSameWheelSpeedLimiter = IniRead($inifile,"[Other]","UseSameWheelSpeedLimiter",1)
+Global $WheelSpeedLimiter = IniRead($inifile,"[Other]","WheelSpeedLimiter",8500)
+Global $WheelAnalogMode = IniRead($inifile,"[Other]","WheelAnalogMode",1)
+
 If $AnalogToMouse <> "1" and $AnalogToMouse <> "0" Then
 	$AnalogToMouse=0
 	endif
@@ -114,6 +124,11 @@ endif
 
 ;dim $remap=Iniread($inifile, "Remap", "Remap",0), $remapLSX = Iniread($inifile, "Remap", "LSX",""), $remapLSY= Iniread($inifile, "Remap", "LSY","")
 $sendkeystype = Iniread($inifile, "Other","SendKeysType",1)
+
+global $hotkey =Iniread(@ScriptDir & "\" & $programName &".config","Hotkey","Hotkey","^+5")
+;$hotkey= '"'&$hotkey&'"'
+$hotkey=String($hotkey)
+HotKeySet($hotkey, reloadini)
 
 
 
@@ -142,6 +157,25 @@ global $pressed[16+1+8]=[False, False, False, False, False, False, False, False,
 global $values[16+1+8]=[iniR("A"),IniR("B"),IniR("X"),IniR("Y"),IniR("LB"),IniR("RB"),IniR("LT"),IniR("RT"),IniR("Back"),IniR("Start"),IniR("LS"),IniR("RS") _
 ,IniR("Dup"),IniR("Ddown"),IniR("Dleft"),IniR("Dright"),IniR("Home"),IniR("LSup"),IniR("LSdown"),IniR("LSleft"),IniR("LSright"),IniR("RSup"),IniR("RSdown"),IniR("RSleft"),IniR("RSright")]
 
+global $toggle[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+global $toggleOn[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+
+global $Turbo[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+global $TurboOn[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+
+global $Combo[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+global $ComboOn[16+1+8]= [False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False ,False, False, False, False,False, False, False, False]
+
+for $i=0 to Ubound($values)-1
+	if (StringInStr($values[$i], "[TOGGLE]")) Then
+		$toggle[$i]=True
+		endif
+
+	if (StringInStr($values[$i], "[TURBO]")) Then
+		$turbo[$i]=True
+
+		endif
+	next
 
 func iniR($key)
 	$temp=Iniread($inifile,"Buttons",$key,"")
@@ -175,14 +209,13 @@ Global $firstPressDone[UBound($keys)] = [False]  ; indica se è passato il delay
 ;msgbox("","",$values[0])
 
 
-HotKeySet("^+5", reloadini)
 
 
 While 1
 	buttons()
 
 
-local $keys[16+1+8]   =[$A, $B, $X, $Y, $LB, $RB, $LT, $RT, $back, $start, $LS, $RS, $Up, $Down, $Left, $Right, $Home, $LSup, $LSdown, $LSleft, $LSright, $RSup, $RSdown, $RSleft, $RSright]
+global $keys[16+1+8]   =[$A, $B, $X, $Y, $LB, $RB, $LT, $RT, $back, $start, $LS, $RS, $Up, $Down, $Left, $Right, $Home, $LSup, $LSdown, $LSleft, $LSright, $RSup, $RSdown, $RSleft, $RSright]
 
 sleep(1)
 
@@ -223,7 +256,8 @@ if $keys[$i] and $pressed[$i]=False Then
 	if $values[$i]<>"LBmouse" and $values[$i]<>"RBmouse" and $values[$i]<>"MBmouse" and $values[$i]<>"WheelUp" and $values[$i]<>"WheelDown" and $skip=False then
 	$pressed[$i]=True
 	$sentKeys[$i]=True
-	send ("{" & $values[$i] & " down}")
+	;send ("{" & $values[$i] & " down}")
+	sn($i,$values[$i], "down")
 Else
 	switch $values[$i]
 		Case "LBmouse"
@@ -233,17 +267,17 @@ Else
 		Case "MBmouse"
 		MouseDown("middle")
 		Case "WheelUp"
-		MouseWheel("up", $wheelstepup)
+		ScrollWheel($i,"up")
 		Case "WheelDown"
-		MouseWheel("down", $wheelstepdown)
-
+		ScrollWheel($i,"down")
 	endswitch
 	$pressed[$i]=True
 	endif
 endif
 if $pressed[$i]=True and not $keys[$i] Then
 	if $values[$i]<>"LBmouse" and $values[$i]<>"RBmouse" and $values[$i]<>"MBmouse" and $values[$i]<>"WheelUp" and $values[$i]<>"WheelDown" and $skip=False then
-	send ("{" & $values[$i] & " up}")
+	;send ("{" & $values[$i] & " up}")
+	sn($i,$values[$i],"up")
 	$pressed[$i]=False
 	Else
 	switch $values[$i]
@@ -266,18 +300,102 @@ next
 
 
 
+
+func sn($ix,$value, $state)
+	;if $state = "down" then
+	;send ("{" & $values[$i] & " up}")
+	;elseif $state= "up" Then
+	;endif
+
+if $toggle[$ix] = True then
+
+	;if $toggleOn[$ix]=False and $pressed[$ix]=True Then
+	if $toggleOn[$ix]=False and $keys[$ix]=True Then
+	$toggleOn[$ix]=True
+	$value=stringreplace($value,"[Toggle]","")
+	send ("{" & $value & " down}")
+
+	;elseif $toggleOn[$ix]=True and $pressed[$ix]=True then
+	elseif $toggleOn[$ix]=True and $keys[$ix]=True then
+	$toggleOn[$ix]=False
+	$value=stringreplace($value,"[Toggle]","")
+	send ("{" & $value & " up}")
+	endif
+
+;elseif $toggle[$ix] = False then
+elseif $toggle[$ix] = False and $turbo[$ix]=False then
+
+if $state = "up" Then
+	send ("{" & $value & " up}")
+elseif $state = "down" Then
+	send ("{" & $value & " down}")
+	endif
+
+
+elseif $toggle[$ix] = False and $turbo[$ix]=True and $keys[$ix] Then
+$value=stringreplace($value,"[Turbo]","")
+
+;for $c=0 to 10
+;while $keys[$ix]
+;send ("{" & $value & "}")
+;next
+;buttons()
+;if (not $keys[$ix]) then
+;	ExitLoop
+;if (not $keys[$ix]) then exitloop
+;wend
+
+
+
+	endif
+	endfunc
+
+
+
+
+#comments-start ;backup FUNZIONAAA
+func sn($ix,$value, $state)
+	;if $state = "down" then
+	;send ("{" & $values[$i] & " up}")
+	;elseif $state= "up" Then
+	;endif
+
+if $toggle[$ix] = True then
+
+	;if $toggleOn[$ix]=False and $pressed[$ix]=True Then
+	if $toggleOn[$ix]=False and $keys[$ix]=True Then
+	$toggleOn[$ix]=True
+	$value=stringreplace($value,"[Toggle]","")
+	send ("{" & $value & " down}")
+
+	;elseif $toggleOn[$ix]=True and $pressed[$ix]=True then
+	elseif $toggleOn[$ix]=True and $keys[$ix]=True then
+	$toggleOn[$ix]=False
+	$value=stringreplace($value,"[Toggle]","")
+	send ("{" & $value & " up}")
+	endif
+
+elseif $toggle[$ix] = False then
+
+if $state = "up" Then
+	send ("{" & $value & " up}")
+elseif $state = "down" Then
+	send ("{" & $value & " down}")
+	endif
+
+
+	endif
+	endfunc
+#comments-end
+
+
 func mouse()
 	 If TimerDiff($lastMouseMove) < 10 then
 		 sleep(1)
         Return
     EndIf
 
-	;$mousemovx=$valx
-	;$mousemovy=$valy
 
-
-	;$mousemovx=$RSX
-	;$mousemovy=$RSY
 
 	if $Stick="LS" then
 		if $LSXinverted="1" Then
@@ -305,27 +423,36 @@ func mouse()
 
 
 
-		;if $RSXinverted="True" Then
-		;$mousemovx=-$mousemovx
-		;endif
-
 
     $mousePos = MouseGetPos()
 
 	;If Abs($mousemovx) < $deadZone And Abs($mousemovy) < $deadZone Then
-	if $mousemovx<$Xrightdeadzone and $mousemovy<$Yupdeadzone and $mousemovx>-$Xleftdeadzone and $mousemovy>-$Ydowndeadzone then
+	;if $mousemovx<$Xrightdeadzone and $mousemovy<$Yupdeadzone and $mousemovx>-$Xleftdeadzone and $mousemovy>-$Ydowndeadzone then
+
+
+	if $mousemovx<$Xrightdeadzone and $mousemovx>-$Xleftdeadzone then
+		$mousemovx=0
+		;$prevX = $mousePos[0]
+	endif
+
+	if $mousemovy<$Yupdeadzone and $mousemovy>-$Ydowndeadzone then
+		$mousemovy=0
+		;$prevY = $mousePos[1]
+	endif
+
+
+	If $mousemovx = 0 And $mousemovy = 0 Then
+    $prevX = $mousePos[0]
+    $prevY = $mousePos[1]
+    Return
+EndIf
 
 
 
+	;Rescale: output = (input - deadzone) / (max - deadzone)
 
-
-			$prevX = $mousePos[0]
-			$prevY = $mousePos[1]
-
-        ;;Sleep(50)
-        ;;ContinueLoop
-		return ;;instead of ContinueLoop
-    EndIf
+$mousemovx = DeadzoneRescale($mousemovx, $XleftDeadzone, $XrightDeadzone)
+$mousemovy = DeadzoneRescale($mousemovy, $YdownDeadzone, $YupDeadzone)
 
 
 	$newX = $mousePos[0] + ($mousemovx / 32768) * $sensitivity
@@ -336,8 +463,7 @@ func mouse()
     $newY = Clip($newY, 0, @DesktopHeight) ;1080
 
 	; Smooth movement - interpolation between current and target position
-	; $smoothFactor = 0.1 ; How smooth should the movement be? (0 = no smoothing, 1 = very smooth)
-
+	; How smooth should the movement be? (1 = no smoothing, near 0 = very smooth, values below 0.1 may make the cursor too slow, 0 blocks the cursor – be cautious)
 
     ; Gradually calculate the mouse position
     $finalX = $prevX + ($newX - $prevX) * $smoothFactor
@@ -356,21 +482,29 @@ func mouse()
 ;sleep(1)
 endfunc
 
-		;If  $mousemovx <  $xrightdeadzone _
-		;And $mousemovx > -$xleftdeadzone _
-		;Then
-		;;$mousemovx = 0
-		;$prevX = $mousePos[0]
-		;EndIf
 
-		;If  $mousemovy <  $yupdeadzone _
-		;And $mousemovy > -$ydowndeadzone _
-		;Then
-		;;$mousemovy = 0
-		;$prevY = $mousePos[1]
-		;EndIf
+func DeadzoneRescale($mousemov,$deadzone1,$deadzone2)
+
+	Local $max = 32768
+	local $deadzone=0
 
 
+	if ($mousemov<0) then
+	$adjusted = $mousemov + $deadzone1
+	$deadzone = $deadzone1
+ If $adjusted > 0 Then $adjusted = 0
+else
+	;elseif($mousemov>=0) then
+	 $adjusted = $mousemov - $deadzone2
+	 $deadzone = $deadzone2
+	  If $adjusted < 0 Then $adjusted = 0
+	EndIf
+
+	$adjusted=(($adjusted)/($max - $deadzone))*$max
+
+	return $adjusted
+
+	endfunc
 
 
 
@@ -533,12 +667,16 @@ endif
 
 
 
-;dim $remap=Iniread($inifile, "Remap", "Remap",0), $remapLSX = Iniread($inifile, "Remap", "LSX",""), $remapLSY= Iniread($inifile, "Remap", "LSY","")
 $sendkeystype = Iniread($inifile, "Other","SendKeysType",1)
 $wheelstepup=IniRead($inifile,"[Other]","WheelStepUp",1)
 $wheelstepdown=IniRead($inifile,"[Other]","WheelStepDown",1)
 
 
+Global $WheelSpeedLimiterUp = IniRead($inifile,"[Other]","WheelSpeedLimiterUp",8500)
+Global $WheelSpeedlimiterDown = IniRead($inifile,"[Other]","WheelSpeedLimiterDown",8500)
+Global $UseSameWheelSpeedLimiter = IniRead($inifile,"[Other]","UseSameWheelSpeedLimiter",1)
+Global $WheelSpeedLimiter = IniRead($inifile,"[Other]","WheelSpeedLimiter",8500)
+Global $WheelAnalogMode = IniRead($inifile,"[Other]","WheelAnalogMode",1)
 
 
 switch $MouseDeadzoneType
@@ -561,6 +699,7 @@ endfunc
 
 
 func reloadini()
+	;msgbox("","","Config reloaded!",1)
 	loadini()
 global $values[16+1+8]=[iniR("A"),IniR("B"),IniR("X"),IniR("Y"),IniR("LB"),IniR("RB"),IniR("LT"),IniR("RT"),IniR("Back"),IniR("Start"),IniR("LS"),IniR("RS") _
 ,IniR("Dup"),IniR("Ddown"),IniR("Dleft"),IniR("Dright"),IniR("Home"),IniR("LSup"),IniR("LSdown"),IniR("LSleft"),IniR("LSright"),IniR("RSup"),IniR("RSdown"),IniR("RSleft"),IniR("RSright")]
@@ -598,10 +737,9 @@ Else
 		Case "MBmouse"
 		MouseDown("middle")
 		Case "WheelUp"
-		MouseWheel("up", $wheelstepup)
+		ScrollWheel($i,"up")
 		Case "WheelDown"
-		MouseWheel("down", $wheelstepdown)
-
+		ScrollWheel($i,"down")
 	endswitch
 	$pressed[$i]=True
 	endif
@@ -629,6 +767,50 @@ next
 endfunc
 
 
+Func ScrollWheel($k,$dir)
+local $ver
+if $WheelAnalogMode=1 and $k>=17 then
+
+
+	$k=$k-17
+	local $values=[$LSY, $LSY, $LSX, $LSX,   $RSY,$RSY, $RSX,$RSX]
+	$value=$values[$k]
+
+	;if $dir="down" Then
+	;	$ver=$MOUSE_WHEEL_DOWN
+	;	endif
+
+		 if $UseSameWheelSpeedLimiter = 1 then
+			$WheelSpeedLimiterUp=$WheelSpeedLimiter
+			$WheelSpeedLimiterDown=$WheelSpeedLimiter
+		 endif
+
+		Local $stepsUp = Ceiling(Abs($value)/ $WheelSpeedLimiterUp)
+		Local $stepsDown = Ceiling(Abs($value)/ $WheelSpeedLimiterDown)
+
+	if $dir = "up" Then
+	$steps=$stepsUp
+	elseif $dir = "down" Then
+	$steps=$stepsDown
+	endif
+
+
+        If $value < 0 Then
+			MouseWheel($dir, $steps)
+			Else
+			MouseWheel($dir, $steps)
+        EndIf
+else
+
+		if $dir="down" then
+			MouseWheel($MOUSE_WHEEL_DOWN, $wheelstepdown)
+		Elseif $dir="up" then
+            MouseWheel($MOUSE_WHEEL_UP, $wheelstepup)
+		endif
+
+endif
+	;sleep(1)
+EndFunc
 
 
 
@@ -686,9 +868,11 @@ func keysDesktop()
 				Case "MBmouse"
 					MouseDown("middle")
 				Case "WheelUp"
-					MouseWheel("up", $wheelstepup)
+				;MouseWheel("up", $wheelstepup)
+				ScrollWheel($i,"up")
 				Case "WheelDown"
-					MouseWheel("down",$wheelstepdown)
+				;MouseWheel("down",$wheelstepdown)
+				ScrollWheel($i,"down")
 			EndSwitch
 			$pressed[$i] = True
 			$sentKeys[$i]=True
@@ -774,9 +958,11 @@ func keysDesktop2()
 				Case "MBmouse"
 					MouseDown("middle")
 				Case "WheelUp"
-					MouseWheel("up", $wheelstepup)
+				;MouseWheel("up", $wheelstepup)
+				ScrollWheel($i,"up")
 				Case "WheelDown"
-					MouseWheel("down",$wheelstepdown)
+				;MouseWheel("down",$wheelstepdown)
+				ScrollWheel($i,"down")
 			EndSwitch
 			$pressed[$i] = True
 			$sentKeys[$i]=True
