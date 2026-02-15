@@ -86,7 +86,7 @@ Values you can assign to the buttons:
 <br>
 
 
-- Download last version:
+<!--- Download last version: -->
 <!--[v1.0.1](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.0.1/GamepadToKeyboard.exe)-->
 
 
