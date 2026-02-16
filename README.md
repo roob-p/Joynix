@@ -11,7 +11,7 @@
 - The program allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - Supports button toggle (key stays pressed even if the button is released)
-- **In future I'll add MACRO, COMBO and TURBO functionalities. Stay tuned.**
+- **MACRO, COMBO and TURBO functionalities planned. Stay tuned.**
 
   
   
