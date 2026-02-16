@@ -31,7 +31,7 @@
 > ⚠️ **Work in Progress**
 - Specify the assignment `.ini` config to load in `GamepadToKeyboard.config`. It will be loaded when starting the application. 
 - The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`.
-- Add `[TOGGLE]` to the button assignment to set that button as a button toggle.  
+- Add `[TOGGLE]` to the button assignment to set that button as a toggle.  
 
   
 
