@@ -2,7 +2,7 @@
  ![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)  
  
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
-
+### UNDER COSTRUCTION ###  
 > ⚠️ **Work in Progress**  
 > Program and README still under construction.
 
@@ -14,7 +14,7 @@
 - **In future I'll add MACRO, COMBO and TURBO functionalities. Stay tuned.**
 
   
-### UNDER COSTRUCTION ###    
+  
 <!--**Planned a resident tray exe that switches profiles automatically.**
 - Supports button toggle (key stays pressed even if the button is released)
 - The program also allows fine control over several controller aspects: deadzones (per stick, axis, or direction), axis inversion and more.
@@ -31,7 +31,7 @@
 > ⚠️ **Work in Progress**
 - Specify the assignment `.ini` config to load in `GamepadToKeyboard.config`. It will be loaded when starting the application. 
 - The program can also load a config if passed as parameter via command line, or by drag and drop it to `GamepadToKeyboard.exe`.
-- Add `[TOGGLE]` to the button assignment to set that button as a button toggle.
+- Add `[TOGGLE]` to the button assignment to set that button as a button toggle.  
 
   
 
