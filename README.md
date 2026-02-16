@@ -4,7 +4,7 @@
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
 ### UNDER COSTRUCTION ###  
 > ⚠️ **Work in Progress**  
-> Program and README still under construction.
+> Program and README are still under construction.
 
 - Emulate your mouse and keyboard input with your controller, so you can use it in games without gamepad support, or where some controller buttons (in particular `LT` and `RT`) do not work.  
 ***Perfect for old games without native controller support or with incomplete Xinput functionality.***
