@@ -42,7 +42,10 @@ Values you can assign to the buttons:
 ### 📘 Syntax
 - Just add one modifier to button assignments, placing it before the keys (e.g `A = [Turbo]c`).
 - Each key must be separated with `,`. Extra spaces are ignored (e.g `A = [COMBO] c,S, L,Lbmouse`).
+- Spaces after modifiers are optional (`[Turbo]k` and `[Turbo] k` are both valid).
+- Modifiers are case-insensitive (`[Turbo]`, `[TURBO]` and `[turbo]` are equivalent).
 - You can send up to 10 buttons with Combo-based modifier, and up to 15 with `[Sequence]` modifier.
+
 
 
 **Example syntax:**
@@ -84,8 +87,6 @@ Values you can assign to the buttons:
 ### 🧪 Technical Notes
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
 - `[ComboAsync]` and `[Sequence]` timing can be customized through their dedicated delay variables.
-- Modifiers are case-insensitive (`[Turbo]`, `[TURBO]` and `[turbo]` are equivalent).
-- Spaces after modifiers are optional (`[Turbo]k` and `[Turbo] k` are both valid).
 - Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).
 
 
