@@ -19,9 +19,9 @@
  - `[Toggle], [Turbo], [TurboToggle]`
  - `[Combo]`: send multiple keys at once
  - `[Execute]`: run programs (e.g. Notepad)
- - `[ComboAsync]`: send multiple keys with a delay (defined with `ComboKeysDelay`)
+ - `[ComboAsync]`: send multiple keys with a delay (defined in `ComboKeysDelay`)
  - `[ToggleCombo],[TurboCombo], [TurboToggleCombo]`
- - `[Sequence]`: send keys in sequence. Similar to [ComboAsync], but ComboAsync sends and holds the keys, [Sequence] sends simple presses.
+ - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
 - Set `AnalogToMouse = 1` to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 
