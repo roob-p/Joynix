@@ -7,7 +7,7 @@
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - **It provides fine control over several controller aspects**: deadzone types (square/rectangular, circular with and without rescale), deadzone values (per stick, axis, or direction), axis inversion, modifiers (`[Toggle],[Turbo],[TurboToggle],[Combo],[Comboasync],[Sequence]` and others) and more.
-- Planned features include a `resident tray profile switcher` and `[MACRO]` and `[TEXT]` modifiers.
+- Future updates will include a `resident tray profile switcher` and `[MACRO]` and `[TEXT]` modifiers.
 
 
 ##### ⚠️ `GamepadToKeyboard` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
@@ -85,7 +85,7 @@ Values you can assign to the buttons:
 
 ### 🧪 Technical Notes
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
-- `[ComboAsync]` and `[Sequence]` timing can be customized through their dedicated delay variables (in ms).
+- `[ComboAsync]` and `[Sequence]` timing can be customized through their dedicated delay variables (expressed in ms).
 - Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).
 
 
