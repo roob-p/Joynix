@@ -72,7 +72,7 @@ Values you can assign to the buttons:
 |                                 |Deadzoneshape                   |`1/2/3`  : `Square/Rectangular`,`Circular`,`Circular (with rescale)`.     |
 |                                 |DeadzoneType                    |`1/2/4`  : Both axis/ per axis/ per direction.                                                                              |
 |                                 |(Stick)AxisInverted             |`1/0`    : Turn On/off axis inversion. 4 options available.                                             | 
-|                                 |Sensitivity                     |`value`  : Mouse movement speed.                                                                                            |
+|                                 |Sensitivity                     |`Value`  : Mouse movement speed.                                                                                            |
 |Analogs                          |DeadzoneType                    |`1/2/4/8`: Both sticks/ per stick/ per axis/ per direction.                                                                |    
 |                                 |(Stick)AxisInverted             |`1/0`    : Turn On/off axis inversion. 4 options available.                               
 |Other                            |SendKeysTypes                   |`1`: Game mode; `2`: Desktop (with windows-style keypress delay + repeat)   
