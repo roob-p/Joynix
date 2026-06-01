@@ -1,6 +1,6 @@
 [![🔙 Back](https://img.shields.io/badge/🔙-Back-white?style=flat-square&logoColor=blue&color=blue)](https://roob-p.github.io)  
  # 🎮 GamepadToKeyboard  
- ![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)   
+ <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->   
  
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
 
