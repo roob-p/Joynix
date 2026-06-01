@@ -103,12 +103,6 @@ Values you can assign to the buttons:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E214R1KB)  
 
-<br>
-
-
-- Download last version:
-[v1.2.2](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.2/GamepadToKeyboard.exe)
-
 
 <br>
 
