@@ -18,8 +18,8 @@
   **Just add one of these modifiers before the assigned keys:**
  - `[Toggle], [Turbo], [TurboToggle]`
  - `[Combo]`: send multiple keys at once
- - `[Execute]`: run programs (e.g. Notepad)
- - `[ComboAsync]`: send multiple keys with a delay (defined in `ComboKeysDelay`)
+ - `[Execute]`: run programs (e.g. `notepad`, `calc.exe`, `c:\yourfolder\yourprogram.exe`)
+ - `[ComboAsync]`: send multiple keys with a delay (defined with `ComboKeysDelay`)
  - `[ToggleCombo], [TurboCombo], [TurboToggleCombo]`
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
@@ -31,6 +31,7 @@
 - Configuration files can be edited while the game is running.
 - Just press the Hotkey (`Shift`+`Ctrl`+`5` by default) to instantly reload the current `.ini`, without restarting the application.
 - The Hotkey can be customized in `GamepadToKeyboard.config`. 
+
 
 ## 🕹️ Button assignments
 Values you can assign to the buttons: 
@@ -87,6 +88,8 @@ Values you can assign to the buttons:
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
 - `[ComboAsync]` and `[Sequence]` timing can be customized through their dedicated delay variables (expressed in ms).
 - Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).
+- **The Windows key may not behave exactly like a physical key due to Windows focus-handling limitations.**
+- Please don't use `CTRLDOWN`, `ALTDOWN`, `SHIFTDOWN`, `LWINDOWN`, `RWINDOWN` in the assignments. These special keys are handled through `LAlt`, `LCtrl`, `RAlt`, `RCtrl`, `LWin`, and `RWin`.
 
 
 ### ⚠️ Notes
@@ -104,12 +107,13 @@ Values you can assign to the buttons:
 
 
 - Download last version:
-[v1.2.1](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.1/GamepadToKeyboard.exe)
+[v1.2.2](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.2/GamepadToKeyboard.exe)
+
 
 <br>
 
 ## ⌨️ List of assignable keys
-`SPACE`, `ENTER`, `ALT`, `BACKSPACE`, `BS`, `DELETE`, `DEL`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `HOME`, `END`, `ESCAPE`, `ESC`, `INSERT`, `INS`, `PGUP`, `PGDN`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `F10`, `F11`, `F12`, `TAB`, `PRINTSCREEN`, `LWIN`, `RWIN`, `NUMLOCK on`, `CAPSLOCK off`, `SCROLLLOCK toggle`, `BREAK`, `PAUSE`, `NUMPAD0`, `NUMPAD1`, `NUMPAD2`, `NUMPAD3`, `NUMPAD4`, `NUMPAD5`, `NUMPAD6`, `NUMPAD7`, `NUMPAD8`, `NUMPAD9`, `NUMPADMULT`, `NUMPADADD`, `NUMPADSUB`, `NUMPADDIV`, `NUMPADDOT`, `NUMPADENTER`, `APPSKEY`, `LALT`, `RALT`, `LCTRL`, `RCTRL`, `LSHIFT`, `RSHIFT`, `SLEEP`, `ALTDOWN`, `ALTUP`, `SHIFTDOWN`, `SHIFTUP`, `CTRLDOWN`, `CTRLUP`, `LWINDOWN`, `LWINUP`, `RWINDOWN`, `RWINUP`, `ASC nnnn`, `BROWSER_BACK`, `BROWSER_FORWARD`, `BROWSER_REFRESH`, `BROWSER_STOP`, `BROWSER_SEARCH`, `BROWSER_FAVORITES`, `BROWSER_HOME`, `VOLUME_MUTE`, `VOLUME_DOWN`, `VOLUME_UP`, `MEDIA_NEXT`, `MEDIA_PREV`, `MEDIA_STOP`, `MEDIA_PLAY_PAUSE`, `LAUNCH_MAIL`, `LAUNCH_MEDIA`, `LAUNCH_APP1`, `LAUNCH_APP2`, `OEM_102`  
+`SPACE`, `ENTER`, `ALT`, `BACKSPACE`, `BS`, `DELETE`, `DEL`, `UP`, `DOWN`, `LEFT`, `RIGHT`, `HOME`, `END`, `ESCAPE`, `ESC`, `INSERT`, `INS`, `PGUP`, `PGDN`, `F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `F10`, `F11`, `F12`, `TAB`, `PRINTSCREEN`, `LWIN`, `RWIN`, `NUMLOCK on`, `CAPSLOCK off`, `SCROLLLOCK toggle`, `BREAK`, `PAUSE`, `NUMPAD0`, `NUMPAD1`, `NUMPAD2`, `NUMPAD3`, `NUMPAD4`, `NUMPAD5`, `NUMPAD6`, `NUMPAD7`, `NUMPAD8`, `NUMPAD9`, `NUMPADMULT`, `NUMPADADD`, `NUMPADSUB`, `NUMPADDIV`, `NUMPADDOT`, `NUMPADENTER`, `APPSKEY`, `LALT`, `RALT`, `LCTRL`, `RCTRL`, `LSHIFT`, `RSHIFT`, `SLEEP`, `ASC nnnn`, `BROWSER_BACK`, `BROWSER_FORWARD`, `BROWSER_REFRESH`, `BROWSER_STOP`, `BROWSER_SEARCH`, `BROWSER_FAVORITES`, `BROWSER_HOME`, `VOLUME_MUTE`, `VOLUME_DOWN`, `VOLUME_UP`, `MEDIA_NEXT`, `MEDIA_PREV`, `MEDIA_STOP`, `MEDIA_PLAY_PAUSE`, `LAUNCH_MAIL`, `LAUNCH_MEDIA`, `LAUNCH_APP1`, `LAUNCH_APP2`, `OEM_102`  
 
 <br>
 
@@ -118,7 +122,6 @@ Values you can assign to the buttons:
 ### 🎖️ Credits
 This gamepad script was written in AutoIt.  
 The program makes use of a remodified version of the XInput UDF by Oxin8 (xoninx@gmail.com) to read Xinput states.
-
 
 
 
