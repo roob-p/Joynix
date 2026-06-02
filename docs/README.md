@@ -7,7 +7,7 @@
 - This tool lets you send mouse and keyboard input using your XInput controller with a great level of customization.
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
-- **It provides fine control over several controller aspects**: deadzone types (square/rectangular, circular with and without rescale), deadzone values (per stick, axis, or direction), axis inversion, modifiers (`[Toggle],[Turbo],[TurboToggle],[Combo],[Comboasync],[Sequence]` and others) and more.
+- **It provides fine control over several controller aspects**: deadzone types (square/rectangular, circular with and without rescale), deadzone values (per stick, axis, or direction), axis inversion, modifiers (`[Toggle],[Turbo],[TurboToggle],[Execute],[Combo],[Sequence]` and others) and more.
 - Future updates will include a tray-resident profile switcher, `[MACRO]` and `[TEXT]` modifiers.
 
 
