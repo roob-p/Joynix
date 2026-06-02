@@ -1,8 +1,8 @@
-[![🔙 Back](https://img.shields.io/badge/🔙-Back-white?style=flat-square&logoColor=blue&color=blue)](https://roob-p.github.io)        
- # 🎮 GamepadToKeyboard    
- <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->   
+[![🔙 Back](https://img.shields.io/badge/🔙-Back-white?style=flat-square&logoColor=blue&color=blue)](https://roob-p.github.io)          
+ # 🎮 GamepadToKeyboard      
+ <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->     
  
-🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
+🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*    
 
 - This tool lets you send mouse and keyboard input using your XInput controller with a great level of customization.
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
