@@ -108,7 +108,7 @@ Values you can assign to the buttons:
 
 - Github repo: 🐙 [roop-p/GamepadToKeyboard](https://github.com/roob-p/GamepadToKeyboard/)
 - Download last version:
-  [v1.2.2](https://github.com/roob-p/SunshineCaptureSwitcher/releases/download/v1.2.2/GamepadToKeyboard)
+  [v1.2.2](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.2/GamepadToKeyboard)
   <br>
 
 ## ⌨️ List of assignable keys
