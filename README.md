@@ -25,7 +25,8 @@
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
-- **Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.**
+#### Config loading
+- Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.
 
 ### 🔄 Live config reload
 
