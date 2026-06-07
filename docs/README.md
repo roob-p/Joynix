@@ -8,6 +8,7 @@
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - **It provides fine control over several controller aspects**: deadzone types (square/rectangular, circular with and without rescale), deadzone values (per stick, axis, or direction), axis inversion, modifiers (`[Toggle],[Turbo],[TurboToggle],[Execute],[Combo],[Sequence]` and others) and more.
+- Config selection supports loading through a config variable, command line arguments and drag and drop.
 - Future updates will include a tray-resident profile switcher, `[MACRO]` and `[TEXT]` modifiers.
 
 
@@ -25,6 +26,7 @@
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
+- **Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.**
 
 
 ### 🔄 Live config reload
