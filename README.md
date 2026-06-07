@@ -20,7 +20,7 @@
  - `[Toggle], [Turbo], [TurboToggle]`
  - `[Combo]`: send multiple keys at once
  - `[Execute]`: run programs (e.g. `notepad`, `calc.exe`, `c:\yourfolder\yourprogram.exe`)
- - `[ComboAsync]`: send multiple keys with a delay (defined with `ComboKeysDelay`)
+ - `[ComboAsync]`: send multiple keys with a delay between each key (defined with `ComboKeysDelay`)
  - `[ToggleCombo], [TurboCombo], [TurboToggleCombo]`
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
