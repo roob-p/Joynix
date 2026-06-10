@@ -8,7 +8,8 @@
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
 - Config files can be edited and reloaded on-the-fly using a hotkey, without restarting the application.
 - **It provides fine control over several controller aspects**: deadzone types (square/rectangular, circular with and without rescale), deadzone values (per stick, axis, or direction), axis inversion, modifiers (`[Toggle],[Turbo],[TurboToggle],[Execute],[Combo],[Sequence]` and others) and more.
-- Future updates will include a tray-resident profile switcher, `[MACRO]` and `[TEXT]` modifiers.
+- Planned features will include a tray-resident profile switcher and a more advanced `[MACRO]` modifier.
+
 
 
 ##### ⚠️ `GamepadToKeyboard` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
@@ -23,6 +24,7 @@
  - `[ComboAsync]`: send multiple keys with a delay between each key (defined with `ComboKeysDelay`)
  - `[ToggleCombo], [TurboCombo], [TurboToggleCombo]`
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
+ - `[TEXT]`: send up to 200 characters (e.g. `[TEXT]this is a string`). Not intended for games.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 #### Config loading
