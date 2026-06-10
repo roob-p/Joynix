@@ -88,7 +88,7 @@ Values you can assign to the buttons:
 <br>
 
 ### 🧪 Technical Notes
-- Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
+- Please don't assign `[Turbo]` and other Turbo-based modifiers to `Wheel`, since it has dedicated repetition variables.
 - `[ComboAsync]` and `[Sequence]` timing can be customized through their dedicated delay variables (expressed in ms).
 - Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).
 - **The Windows key may not behave exactly like a physical key due to Windows focus-handling limitations.**
