@@ -2,9 +2,9 @@
 #AutoIt3Wrapper_Icon=icon.ico
 #AutoIt3Wrapper_UseX64=y
 #AutoIt3Wrapper_Res_Description=GamepadToKeyboard (64 bit)
-#AutoIt3Wrapper_Res_Fileversion=1.2.2.0
+#AutoIt3Wrapper_Res_Fileversion=1.2.3.0
 #AutoIt3Wrapper_Res_ProductName=GamepadToKeyboard
-#AutoIt3Wrapper_Res_ProductVersion=1.2.2
+#AutoIt3Wrapper_Res_ProductVersion=1.2.3
 #AutoIt3Wrapper_Res_CompanyName=roob-p (author)
 #AutoIt3Wrapper_Res_LegalCopyright=roob-p (author)
 #AutoIt3Wrapper_Res_LegalTradeMarks=roob-p (author)
@@ -33,7 +33,7 @@ $input = _XInputGetInput($inputhwnd)
 $buttons = _XInputButtons($input[2])
 
 
-global $analogdeadzone=1, $sentKeys[256], $ignoreIndices[4], $sentkeyss[256]
+global $analogdeadzone=1, $sentKeys[256], $ignoreIndices[4]
 
 $programName="GamepadToKeyboard"
 
@@ -50,7 +50,8 @@ endif
 	$inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 	endif
 
-;$inifile=@ScriptDir & "\" & "Max Payne 2.ini"
+	;$inifile=@ScriptDir & "\" & "s.ini"
+
 
 global $A=$buttons[12],$B=$buttons[13],$X=$buttons[14],$Y=$buttons[15],$start=$buttons[5],$back=$buttons[6],$LS=$buttons[7],$RS=$buttons[8],$LB=$buttons[9],$RB=$buttons[10],$Home=$buttons[11],$Up=$buttons[1],$Down=$buttons[2],$Left=$buttons[3],$Right=$buttons[4]
 global $LT=$input[3],$RT=$input[4],	$LSX=$input[5], $LSY=$input[6], $RSX=$input[7], $RSY=$input[8], $LS=$buttons[7], $RS=$buttons[8]
@@ -158,6 +159,8 @@ global $released=$ef, $combo=$ef, $Comboasync=$ef,	$toup=$ef,		$comboOn=$ef, $co
 global $ToggleComboOn=$ef, $ToggleCombo=$ef, $TurboCombo=$ef, $TurboToggleCombo=$ef,	$TurboComboOn=$ef, $TurboToggleOn=$ef, $TurboToggleComboOn=$ef
 global $keysfromcombo[$asize], $combokeys[$asize][$combosize], $keysfromcomboup[$asize], $keysfromcombodown[$asize]
 global $keysfromcomboasync[$asize], $combokeysasync[$asize][$combosize], $keysfromcomboupasync[$asize], $keysfromcombodownasync[$asize], $combK[$asize]
+global $MacroOn=$ef, $macrosize=25, $Macrokeys[$asize][$macrosize]
+global $stringmax=200,  $text=$ef ; $textOn=$ef, $textkeys[$asize][$stringsize]
 
 global $Togglekeysfromcombo[$asize],$Togglecombokeys[$asize][$combosize],$Togglekeysfromcomboup[$asize],$Togglekeysfromcombodown[$asize]
 global $Turbokeysfromcombo[$asize],$Turbocombokeys[$asize][$combosize],$Turbokeysfromcomboup[$asize],$Turbokeysfromcombodown[$asize]
@@ -420,8 +423,10 @@ $TurboToggleOn[$ix]=not $TurboToggleOn[$ix]
 	case 9 ; TurboToggleCombo
 $released[$ix]=False
 $TurboToggleComboOn[$ix]=not $TurboToggleComboOn[$ix]
-	case 10; SimpleMacro
+	case 10; Sequence
 		Sequence($ix,$value,$state,$btype)
+	case 11; Text
+		senderText($ix,$value,$state)
 endswitch
 
 endfunc
@@ -520,6 +525,13 @@ endswitch
 	$val[2]=$flags
 
 	return $val
+endfunc
+
+
+func sendertext($ix,$value, $state)
+
+if $state=0 then send($value)
+
 endfunc
 
 func scrollwheelT($ix,$value)
@@ -649,6 +661,8 @@ switch $baction
 		sender($ix,$value,$state,$btype,$specialkey)
 	case 10; Sequence
 		Sequence($ix,$value,$state,$btype)
+	case 11; Text
+		senderText($ix,$value,$state)
 endswitch
 
 endfunc
@@ -1035,6 +1049,17 @@ for $i=0 to Ubound($values)-1
 
 	$buttonaction[$i]=10
 		endif
+
+
+
+		if (StringInStr($values[$i], "[TEXT]")) Then
+		$Text[$i]=True
+		$values[$i]=stringreplace($values[$i],"[TEXT]","")
+		if stringlen($values[$i])>=$stringmax then $values[$i]=Stringleft($values[$i],$stringmax)
+
+		$buttonaction[$i]=11
+		endif
+
 
 
 
@@ -1458,6 +1483,8 @@ global $released=$ef, $combo=$ef, $Comboasync=$ef,	$toup=$ef,		$comboOn=$ef, $co
 global $ToggleComboOn=$ef, $ToggleCombo=$ef, $TurboCombo=$ef, $TurboToggleCombo=$ef,	$TurboComboOn=$ef, $TurboToggleOn=$ef, $TurboToggleComboOn=$ef
 global $keysfromcombo[$asize], $combokeys[$asize][$combosize], $keysfromcomboup[$asize], $keysfromcombodown[$asize]
 global $keysfromcomboasync[$asize], $combokeysasync[$asize][$combosize], $keysfromcomboupasync[$asize], $keysfromcombodownasync[$asize], $combK[$asize]
+global $MacroOn=$ef, $macrosize=25, $Macrokeys[$asize][$macrosize]
+global $stringmax=200,  $text=$ef ; $textOn=$ef, $textkeys[$asize][$stringsize]
 
 global $Togglekeysfromcombo[$asize],$Togglecombokeys[$asize][$combosize],$Togglekeysfromcomboup[$asize],$Togglekeysfromcombodown[$asize]
 global $Turbokeysfromcombo[$asize],$Turbocombokeys[$asize][$combosize],$Turbokeysfromcomboup[$asize],$Turbokeysfromcombodown[$asize]
@@ -1612,7 +1639,7 @@ func up()
 		$code  = 0x5C
 		$flags = 0x0001
 
-DllCall("user32.dll", "none", "keybd_event", "byte", $value, "byte", $code, "long",  BitOR($flags, 0x0002), "ptr", 0)
+	DllCall("user32.dll", "none", "keybd_event", "byte", $value, "byte", $code, "long",  BitOR($flags, 0x0002), "ptr", 0)
 
 endfunc
 
