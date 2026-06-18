@@ -1,7 +1,7 @@
  # 🎮 Joynix
 <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->  
  
-🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
+🕹️ *Advanced gamepad input mapping for keyboard and mouse, designed to be quick, easy and highly customizable.*  
 
 - This tool lets you send mouse and keyboard input using your XInput controller with a great level of customization.
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
