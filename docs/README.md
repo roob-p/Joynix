@@ -89,9 +89,9 @@ Values you can assign to the buttons:
 |                                 |(Stick)AxisInverted             |`1/0`    : Turn On/off axis inversion. 4 options available.                               
 |Other                            |SendKeysTypes                   |`1`: Game mode; `2`: Desktop (with windows-style keypress delay + repeat)     
 
-<br>
+<br>  
 
- ### ⌨️ Hotkeys                                                
+ ### ⌨️ Hotkeys                                                  
 The program supports several configurable hotkeys. They can be set in `Joynix.config` and disabled if needed.
 - **Stats system**: `Shift + Ctrl + 6` (default)
 - **ShiftMode controls**: `ShiftModeToggle`, `ShiftModeCycle-`, `ShiftModeCycle+`, disabled by default.
@@ -100,7 +100,7 @@ The program supports several configurable hotkeys. They can be set in `Joynix.co
   e.g. `KeyboardShiftEnabled = False`
                                                                    
 
-<br>
+<br>  
 
 ### 🧪 Technical Notes
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
