@@ -30,6 +30,7 @@
    - `[ShiftMode]`: press and hold to change the active Shift key (define the target key number after the modifier, e.g. `[ShiftMode] 3`).
    - `[ShiftModeToggle]`: same as above, but the button acts as a toggle.
    - `[ShiftModeCycle-], [ShiftModeCyle+]` or `[ShiftModeCyle]`: cycle through the available Shift keys. These modifiers do not require a value (e.g. `LT = [ShiftModeCyle+]`).
+   - These modifiers can also be activated via configurable keyboard hotkeys.
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` ).
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 #### Config loading
