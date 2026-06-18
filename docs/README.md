@@ -117,7 +117,7 @@ The program supports several configurable hotkeys. They can be set in `Joynix.co
 
 <br>  
 
-**If you enjoy GamepadToKeyboard, you can buy me a coffee. It will be very appreciated ;)**  
+**If you enjoy Joynix, you can buy me a coffee. It will be very appreciated ;)**  
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E214R1KB)  
 
