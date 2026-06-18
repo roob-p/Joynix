@@ -34,7 +34,7 @@
 - Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` ).
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 #### Config loading
-- Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.
+- Configs can be loaded through `ConfigToLoad` in `Joynix.config`, via command line, or by drag and drop.
 
 ### 🔄 Live config reload
 
