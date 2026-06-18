@@ -24,7 +24,9 @@
  - `[ToggleCombo], [TurboCombo], [TurboToggleCombo]`
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
  - `[Text]`: send up to 200 characters (e.g. `[TEXT]this is a string`). Not intended for games.
-- Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
+ - `[Hold]`: perform different actions depending on how long the button is held. Short press sends the 1st key, medium press sends the 2nd key, long press sends the 3rd key.([Hold] a, b, c)
+ - `[FastPress]`: repeatedly press the button within the configured time window to cycle through the keys to send. `[FastPress] a, b, c`).
+- Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` ).
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 #### Config loading
 - Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.
