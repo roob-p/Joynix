@@ -1,4 +1,4 @@
- # 🎮 GamepadToKeyboard
+ # 🎮 Joynix
 <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->  
  
 🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*  
@@ -11,7 +11,7 @@
 
 
 
-##### ⚠️ `GamepadToKeyboard` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
+##### ⚠️ `Joynix` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
 
 
 ## 📝 Controller configuration
