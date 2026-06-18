@@ -2,7 +2,7 @@
 # 🕹️ Joynix   
 <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/Joynix/total)-->  
  
-🕹️ *Flexible gamepad input mapping for keyboard and mouse, built to be quick, easy and highly customizable.*  
+🕹️ *Flexible gamepad input mapping for keyboard and mouse, built to be quick to set up, easy to use and highly customizable.*   
 
 - This tool lets you send mouse and keyboard input using your XInput controller with a great level of customization.
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
