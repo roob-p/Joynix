@@ -1,5 +1,5 @@
  # 🎮 Joynix
-<!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->  
+<!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/Joynix/total)-->  
  
 🕹️ *Flexible gamepad input mapping for keyboard and mouse, built to be quick, easy and highly customizable.*  
 
