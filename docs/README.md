@@ -1,8 +1,8 @@
 [![🔙 Back](https://img.shields.io/badge/🔙-Back-white?style=flat-square&logoColor=blue&color=blue)](https://roob-p.github.io)  
-# 🎮 GamepadToKeyboard  
- <!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/GamepadToKeyboard/total)-->  
+# 🕹️ Joynix   
+<!--![GitHub Downloads](https://img.shields.io/github/downloads/roob-p/Joynix/total)-->  
  
-🕹️ *Emulate mouse and keyboard input with your gamepad in a quick, easy and highly customizable manner.*    
+🕹️ *Flexible gamepad input mapping for keyboard and mouse, built to be quick, easy and highly customizable.*  
 
 - This tool lets you send mouse and keyboard input using your XInput controller with a great level of customization.
 - It's designed to make controller configuration fast and simple: just open a config `.ini` and edit assignments, modifiers and variables.
@@ -12,7 +12,7 @@
 
 
 
-##### ⚠️ `GamepadToKeyboard` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
+##### ⚠️ `Joynix` requires an Xinput controller (native or emulated via tools like DS4Windows, DualSenseX, x360ce, etc.).  
 
 
 ## 📝 Controller configuration
@@ -25,11 +25,17 @@
  - `[ToggleCombo], [TurboCombo], [TurboToggleCombo]`
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
  - `[Text]`: send up to 200 characters (e.g. `[TEXT]this is a string`). Not intended for games.
-- Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` )
+ - `[Hold]`: perform different actions depending on how long the button is held. Short press sends the 1st key, medium press sends the 2nd key, long press sends the 3rd key. (e.g. `[Hold] a, b, c`)
+ - `[FastPress]`: repeatedly press the button to cycle through the keys to send (define the keys after the modifier, e.g. `[FastPress] a, b, c`. The cycling time window is defined by `FastPressTime` in `[Other]`).
+ - `[Shift]`: add a set of keys (up to 5, e.g. `[Shift] a, b, c, d, e`) and switch between them using the ShiftMode modifiers:
+   - `[ShiftMode]`: press and hold to change the active Shift key (define the target key number after the modifier, e.g. `[ShiftMode] 3`).
+   - `[ShiftModeToggle]`: same as above, but the button acts as a toggle.
+   - `[ShiftModeCycle-], [ShiftModeCyle+]` or `[ShiftModeCyle]`: cycle through the available Shift keys. These modifiers do not require a value (e.g. `LT = [ShiftModeCyle+]`).
+   - These modifiers can also be activated via configurable keyboard hotkeys.
+- Set `AnalogToMouse = 1` (enabled by default) to move the mouse with the analog stick defined in `Stick` (default: `Stick = RS` ).
 - Mouse wheel input is digital when assigned to buttons, and analog/progressive when assigned to sticks or triggers.
 #### Config loading
-- Configs can be loaded through `ConfigToLoad` in `GamepadToKeyboard.config`, via command line, or by drag and drop.
-
+- Configs can be loaded through `ConfigToLoad` in `Joynix.config`, via command line, or by drag and drop.
 
 ### 🔄 Live config reload
 
@@ -83,8 +89,15 @@ Values you can assign to the buttons:
 |                                 |(Stick)AxisInverted             |`1/0`    : Turn On/off axis inversion. 4 options available.                               
 |Other                            |SendKeysTypes                   |`1`: Game mode; `2`: Desktop (with windows-style keypress delay + repeat)   
 
-                                                 
+<br>
 
+ ### ⌨️ Hotkeys                                                
+The program supports several configurable hotkeys. They can be set in `Joynix.config` and disabled if needed.
+- **Stats system**: `Shift + Ctrl + 6` (default)
+- **ShiftMode controls**: `ShiftModeToggle`, `ShiftModeCycle-`, `ShiftModeCycle+`, disabled by default.
+- **Configuration reload**: `Shift + Ctrl + 5` (already described above).  
+- To enable/disable a hotkey, use the corresponding boolean flag in `Joynix.config`:
+  e.g. `KeyboardShiftEnabled = False`
                                                                    
 
 <br>
@@ -108,11 +121,13 @@ Values you can assign to the buttons:
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E214R1KB)  
 
+
 <br>
 
-- Github repo: 🐙 [roop-p/GamepadToKeyboard](https://github.com/roob-p/GamepadToKeyboard/)
+- Github repo: 🐙 [roop-p/Joynix](https://github.com/roob-p/Joynix/)
 - Download last version:
-  [v1.2.3](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.3/GamepadToKeyboard.exe)
+  [(GamepadToKeyboard) v1.2.3](https://github.com/roob-p/GamepadToKeyboard/releases/download/v1.2.3/GamepadToKeyboard.exe)
+  <br>
   <br>
 
 ## ⌨️ List of assignable keys
