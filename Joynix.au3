@@ -35,7 +35,7 @@ $buttons = _XInputButtons($input[2])
 
 global $analogdeadzone=1, $sentKeys[256], $ignoreIndices[4]
 
-$programName="GamepadToKeyboard"
+$programName="Joynix"
 
 
 if $cmdline[0]>0 then
@@ -50,7 +50,7 @@ endif
 	$inifile=IniRead(@ScriptDir & "\" & $programName &".config","configToLoad","configToLoad","default.ini")
 	endif
 
-	$inifile=@ScriptDir & "\" & "s.ini"
+	;$inifile=@ScriptDir & "\" & "s.ini"
 
 
 global $A=$buttons[12],$B=$buttons[13],$X=$buttons[14],$Y=$buttons[15],$start=$buttons[5],$back=$buttons[6],$LS=$buttons[7],$RS=$buttons[8],$LB=$buttons[9],$RB=$buttons[10],$Home=$buttons[11],$Up=$buttons[1],$Down=$buttons[2],$Left=$buttons[3],$Right=$buttons[4]
