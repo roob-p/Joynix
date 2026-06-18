@@ -25,8 +25,8 @@
  - `[Sequence]`: send keys in sequence. Similar to `[ComboAsync]`, but ComboAsync sends and holds the keys, `[Sequence]` sends simple presses.
  - `[Text]`: send up to 200 characters (e.g. `[TEXT]this is a string`). Not intended for games.
  - `[Hold]`: perform different actions depending on how long the button is held. Short press sends the 1st key, medium press sends the 2nd key, long press sends the 3rd key. (`[Hold] a, b, c`)
- - `[FastPress]`: repeatedly press the button within the time window to cycle through the keys to send. (e.g. `[FastPress] a, b, c`).
- - `[Shift]`: add a set of keys (up to 5) and switch between them using the ShiftMode modifiers:
+ - `[FastPress]`: repeatedly press the button within the time window to cycle through the keys to send (define the keys after the modifier, e.g. `[FastPress] a, b, c`).
+ - `[Shift]`: add a set of keys (up to 5, e.g. `[Shift] a, b, c, d, e`) and switch between them using the ShiftMode modifiers:
    - `[ShiftMode]`: press and hold to change the active Shift key (define the target key number after the modifier, e.g. `[ShiftMode] 3`).
    - `[ShiftModeToggle]`: same as above, but the button acts as a toggle.
    - `[ShiftModeCycle-], [ShiftModeCyle+]` or `[ShiftModeCyle]`: cycle through the available Shift keys. These modifiers do not require a value (e.g. `LT = [ShiftModeCyle+]`).
