@@ -102,7 +102,7 @@ The program supports several configurable hotkeys. They can be set in `Joynix.co
 <br>
 
 ### 🧪 Technical Notes
-- Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).
+- **Add only one modifier per assignment (e.g `[Turbo][Combo]` NOT supported).**
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
 - When multiple `[Shift]` assignments are used together with ShiftModeCycle modifiers, it is recommended to use the same number of keys in each assignment. Different lengths are supported (e.g. `LT = [Shift] a,b,c,d,e` and `RT = [Shift] j,k,l`), but may produce less predictable results.
 - Timing-related modifiers can be customized through their dedicated variables:
