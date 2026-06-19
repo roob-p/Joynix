@@ -106,7 +106,7 @@ The program supports several configurable hotkeys. They can be set in `Joynix.co
 - Please don't assign `[Turbo]` and other Turbo-based modifiers to Wheel, since it has dedicated repetition variables.
 - When multiple `[Shift]` assignments are used together with ShiftModeCycle modifiers, it is recommended to use the same number of keys in each assignment. Different lengths are supported (e.g. `LT = [Shift] a,b,c,d,e` and `RT = [Shift] j,k,l`), but may produce less predictable results.
 - Timing-related modifiers can be customized through their dedicated variables:
-  * `[ComboAsync]` and `[Sequence]`: configurable delays through `ComboAsyncTime` and `Sequence` (ms).
+  * `[ComboAsync]` and `[Sequence]`: configurable delays through `ComboAsyncTime` and `SequenceTime` (ms).
   * `[FastPress]`: configurable time window through `FastPressTime`.
   * `[Hold]`: configurable hold duration thresholds through `HoldTime`.
 - **The Windows key may not behave exactly like a physical key due to Windows focus-handling limitations.**
