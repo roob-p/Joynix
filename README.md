@@ -115,7 +115,7 @@ The program supports several configurable hotkeys. They can be set in `Joynix.co
 
 ### ⚠️ Notes
 - The exe that comes with the extension is 64bit. The reason is that the x64 version of Autoit programs receive minor flags from AV engines. If you need the x86 one you can download it from the main in the repo, or from the attached files in the releases.  
-- The program does not contain any malicious behaviour. If your AV engine flags it as malware it's a false positive. If so, please send `GamepadTokeyboard.exe` (or any associated flagged file) to your AV vendor asking for a false positive review request.
+- The program does not contain any malicious behaviour. If your AV engine flags it as malware it's a false positive. If so, please send `Joynix.exe` (or any associated flagged file) to your AV vendor asking for a false positive review request.
 
 
 <br>  
