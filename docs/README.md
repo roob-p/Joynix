@@ -90,8 +90,8 @@ Values you can assign to the buttons:
 |Other                            |SendKeysTypes                   |`1`: Game mode; `2`: Desktop (with windows-style keypress delay + repeat)     
 
 <br>  
-
-### ⌨️ Hotkeys  
+  
+### ⌨️ Hotkeys    
 The program supports several configurable hotkeys. They can be set in `Joynix.config` and disabled if needed.
 - **Configuration reload**: `Shift + Ctrl + 5` (already described above).  
 - **Stats system**: `Shift + Ctrl + 6` (default)
